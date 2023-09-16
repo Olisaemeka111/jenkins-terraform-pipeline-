@@ -1,0 +1,119 @@
+The project is to create a multi tier architecure for deployment
+of a stateful application in AWS cloud.
+
+
+1. Create a VPC US East 1 in AWS account
+2. Create two AZ1 and AZ2 for the projects 
+3. Create 2 subnet in each AZ for both public and private subnets in AZ1 and AZ2
+respectively with CIDR block 10.0.1/24 & 10.0.2/24 for both public subnet 1 and 2 and 10.0.3/24 and 10.0.4/24 for both private subnets 1 and 2
+4. Launch an EC2 instance in  the Public Subnet and private subnet for both AZ
+lauch an Auto scaler for the public subnet1 and 2
+Launch an  Auto scaler for private subnet 1 and 2
+launch an auto ALB for public subnet 1 and 2
+Lauch and ELB for private subnet 1 and 2
+install a RDS primary in private subnet 1 and RDS Multi AZ standby and create a synchronous replication between the 2 
+Launch a VPC NAt Gateway for public subnet2 and private subnet 2
+launch a VPC nat GAteway for public subnet 1 and private subnet 1
+
+thisis a perfect script with a test in it
+nice job
+on my mind toww
+
+
+
+
+
+
+
+# Multi-Tier Architecture for Stateful Application Deployment in AWS
+
+This project aims to create a robust and scalable multi-tier architecture for deploying a stateful application in the AWS Cloud. The architecture ensures high availability, fault tolerance, and efficient resource utilization while maintaining security and performance standards.
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Architecture Components](#architecture-components)
+- [Getting Started](#getting-started)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Project Overview
+
+This project sets up a multi-tier architecture for deploying a stateful application in the AWS US East 1 region. It includes the following components:
+
+- Virtual Private Cloud (VPC)
+- Availability Zones (AZ1 and AZ2)
+- Subnets (Public and Private)
+- EC2 Instances (Public and Private)
+- Auto Scaling Groups
+- Application Load Balancers (ALB)
+- Elastic Load Balancers (ELB)
+- Amazon RDS (Primary and Multi-AZ Standby)
+- VPC NAT Gateways
+
+## Architecture Components
+
+### VPC and Availability Zones
+
+We create a VPC in the AWS US East 1 region and divide it into two Availability Zones (AZ1 and AZ2) for redundancy and high availability.
+
+### Subnets
+
+In each AZ, we set up public and private subnets. Public subnets handle incoming traffic, while private subnets host internal components.
+
+### EC2 Instances and Auto Scaling
+
+EC2 instances are launched in public and private subnets across both AZs. Auto Scaling groups ensure scalability and manage instances based on traffic.
+
+### Load Balancers
+
+Application Load Balancers (ALB) distribute incoming traffic across EC2 instances in public subnets. Elastic Load Balancers (ELB) manage traffic for private instances.
+
+### Amazon RDS
+
+We establish an RDS primary instance in the private subnet of AZ1 and a Multi-AZ standby instance in the private subnet of AZ2. Synchronous replication ensures data consistency.
+
+### VPC NAT Gateways
+
+NAT Gateways in public and private subnets enable outbound internet access for instances in private subnets.
+
+## Getting Started
+
+To deploy this architecture, follow these steps:
+
+1. Clone this repository to your local machine.
+2. Configure your AWS credentials.
+3. Update the configuration files with your settings (see Configuration section).
+4. Run the deployment scripts to create resources.
+
+## Configuration
+
+Modify the following configuration files to match your environment:
+
+- `vpc.tf`: Configure VPC settings, subnet CIDR blocks, and AZs.
+- `ec2.tf`: Define EC2 instance specifications and Auto Scaling groups.
+- `load_balancers.tf`: Configure ALB and ELB settings.
+- `rds.tf`: Define RDS instance specifications and replication settings.
+- `nat_gateways.tf`: Configure NAT Gateway settings.
+
+## Usage
+
+1. Install Terraform on your local machine.
+2. Configure your AWS credentials using the AWS CLI.
+3. Navigate to the project directory and run `terraform init`.
+4. Run `terraform plan` to review the deployment plan.
+5. Run `terraform apply` to create resources in your AWS account.
+
+## Contributing
+
+Contributions are welcome! Feel free to fork this repository, make improvements, and submit pull requests.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+Feel free to customize the README file according to your project's specifics and additional information you'd like to include.
