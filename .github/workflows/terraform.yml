@@ -13,7 +13,7 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v2
       with:
-        repository: Olisaemeka111/jenkins-terraform-pipeline-
+        repository: https://github.com/Olisaemeka111/jenkins-terraform-pipeline-.git
         ref: main
 
     - name: Set Up Terraform
