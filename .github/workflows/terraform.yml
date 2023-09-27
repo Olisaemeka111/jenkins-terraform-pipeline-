@@ -12,9 +12,6 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
-      with:
-        repository: https://github.com/Olisaemeka111/jenkins-terraform-pipeline-.git
-        ref: main
 
     - name: Set Up Terraform
       uses: hashicorp/setup-terraform@v1
@@ -23,22 +20,22 @@ jobs:
 
     - name: Initialize Terraform
       run: |
-        cd jenkins-terraform-pipeline-
+        cd jenkins-terraform-pipeline-  # Correct directory name
         terraform init
 
     - name: Terraform Plan
       run: |
-        cd jenkins-terraform-pipeline-
+        cd jenkins-terraform-pipeline-  # Correct directory name
         terraform plan -out=tfplan
 
     - name: Terraform Apply
       if: success()
       run: |
-        cd jenkins-terraform-pipeline-
+        cd jenkins-terraform-pipeline-  # Correct directory name
         terraform apply -auto-approve tfplan
 
     - name: Terraform Destroy
       if: failure()
       run: |
-        cd jenkins-terraform-pipeline-
+        cd jenkins-terraform-pipeline-  # Correct directory name
         terraform destroy -auto-approve
