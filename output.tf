@@ -1,7 +1,3 @@
-
-
-
-
 output "rds_standby_endpoint" {
   description = "Endpoint of the RDS standby instance"
   value       = aws_db_instance.rds_standby.endpoint
@@ -26,6 +22,7 @@ output "rds_standby_db_name" {
   description = "Name of the RDS standby database"
   value       = aws_db_instance.rds_standby.db_name
 }
+
 output "rds_subnet_group_arn" {
   description = "ARN of the created RDS subnet group"
   value       = aws_db_subnet_group.rds_subnet_group.arn
@@ -45,6 +42,7 @@ output "public_eip_az1" {
   description = "Public EIP for Availability Zone 1"
   value       = aws_eip.public_eip_az1.public_ip
 }
+
 output "public_eip_az2" {
   description = "Public EIP for Availability Zone 2"
   value       = aws_eip.public_eip_az2.public_ip
@@ -109,16 +107,11 @@ output "public_instance_security_groups_2" {
   description = "Security groups attached to the second public instance"
   value       = aws_instance.public_instances[1].security_groups
 }
-#Certainly, here's the continuation of the `output.tf` file with outputs for the additional resources you provided:
-
-
 
 output "private_elb_arn" {
   description = "ARN of the private Elastic Load Balancer"
   value       = aws_lb.private_elb.arn
 }
-
-
 
 output "public_alb_arn" {
   description = "ARN of the public Application Load Balancer"
@@ -149,12 +142,6 @@ output "private_nat_gateway_az1_public_ip" {
   description = "Public IP of the private NAT gateway in Availability Zone 1"
   value       = aws_nat_gateway.private_nat_gateway_az1.public_ip
 }
-
-
-#These outputs provide information about the public launch configuration, private Elastic Load Balancer, public Application Load Balancer, ALB listener, and private NAT gateway. You can use these outputs to access these resources' important details for further configuration or reference.
-
-#Certainly, here's the continuation of the `output.tf` file with outputs for the additional resources you provided:
-
 
 output "private_nat_gateway_az2_id" {
   description = "ID of the private NAT gateway in Availability Zone 2"
@@ -226,7 +213,6 @@ output "private_subnet_az1_ec2_id" {
   value       = aws_subnet.private_subnet_az1_ec2.id
 }
 
-
 output "private_subnet_az2_ec2_id" {
   description = "ID of the private subnet in Availability Zone 2 for EC2 instances"
   value       = aws_subnet.private_subnet_az2_ec2.id
@@ -241,7 +227,6 @@ output "public_subnet_az2_id" {
   description = "ID of the public subnet in Availability Zone 2"
   value       = aws_subnet.public_subnet_az2.id
 }
-
 
 output "vpc_id" {
   description = "ID of the main VPC"
